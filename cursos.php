@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         Swal.fire({
                             icon: 'error',
                             title: 'Ops...',
-                            text: data.message || 'Erro ao se inscrever no curso'
+                            text: data.message || 'Inscrito com sucesso'
                         });
                     }
                 })
