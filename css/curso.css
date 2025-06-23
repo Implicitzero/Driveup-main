@@ -1,0 +1,140 @@
+/* Estilos para a página de cursos - Layout lado a lado */
+#courses {
+    padding: 40px 80px;
+    text-align: center;
+}
+
+.course-container {
+    display: flex; /* Mudando de grid para flex */
+    flex-wrap: wrap; /* Permite quebra de linha quando não couber */
+    justify-content: center; /* Centraliza os itens */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.course-box {
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 22%; /* Define largura fixa para cada curso */
+    min-width: 250px; /* Largura mínima */
+}
+
+.course-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.course-img img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.course-details {
+    padding: 15px;
+    text-align: left;
+    height: 220px; /* Altura fixa para uniformidade */
+    display: flex;
+    flex-direction: column;
+}
+
+.course-details h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    min-height: 40px; /* Altura fixa para o título */
+}
+
+.course-details p {
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Faz o parágrafo ocupar espaço disponível */
+}
+
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.course-info span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.course-details h4 {
+    color: #088178;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.course-details button {
+    margin-top: auto; /* Empurra o botão para baixo */
+    width: 100%;
+}
+
+/* Seção de benefícios */
+#course-benefits {
+    background-color: #f8f8f8;
+    padding: 60px 80px;
+    text-align: center;
+}
+
+#course-benefits h2 {
+    margin-bottom: 40px;
+}
+
+.benefits-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.benefit-box {
+    padding: 30px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    width: 22%;
+    min-width: 200px;
+}
+
+.benefit-box i {
+    font-size: 2.5rem;
+    color: #088178;
+    margin-bottom: 15px;
+}
+
+.benefit-box h3 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .course-box, .benefit-box {
+        width: 30%;
+    }
+}
+
+@media (max-width: 900px) {
+    .course-box, .benefit-box {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    #courses, #course-benefits {
+        padding: 40px 20px;
+    }
+    
+    .course-box, .benefit-box {
+        width: 100%;
+        max-width: 350px;
+    }
+}

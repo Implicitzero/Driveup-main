@@ -1,0 +1,260 @@
+/* Definindo as cores principais */
+:root {
+    --primary-color: #F48C2B;
+    --accent-color: #23456A;
+    --dark-color: #222;
+}
+
+/* Reset básico e fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo do corpo */
+body {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 20px;
+}
+
+/* Container principal */
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Formulário de Inserção de Produto */
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 45%;
+}
+
+.form-container h2 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-container button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: darkorange;
+}
+
+/* Estilo de pesquisa */
+.search-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 45%;
+}
+
+.search-container h2 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.search-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-container form label {
+    margin-bottom: 5px;
+}
+
+.search-container input,
+.search-container select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-container button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: darkorange;
+}
+
+/* Tabela de Inventário */
+.inventory-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+table td img {
+    max-width: 100px;
+    height: auto;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos dos botões de ação */
+.insert-btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.insert-btn:hover {
+    background-color: darkorange;
+}
+
+/* Estilos do container de pedidos */
+.container11 {
+    margin-top: 40px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Centraliza a div .order-container */
+.order-container {
+    display: flex;
+    flex-direction: column; /* Alinha os itens na direção da coluna (verticalmente) */
+    align-items: center;    /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Garante que os itens fiquem centralizados verticalmente */
+    text-align: center;      /* Centraliza o texto dentro do <h1> */
+}
+
+/* Estilo do título dentro de .order-container */
+.order-container h1 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+
+/* Centraliza a div .btns */
+.btns {
+    display: flex;
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    align-items: center;     /* Alinha os itens no centro verticalmente (se necessário) */
+    gap: 10px;               /* Espaço entre os botões */
+    margin-top: 20px;        /* Espaço superior opcional */
+}
+
+/* Estilo dos links (botões) */
+.btns a {
+    margin-right: 10px;  /* Espaçamento à direita entre os botões */
+}
+
+/* Estilo dos botões */
+#all-btn,
+#delivered-btn,
+#undelivered-btn,
+#oupdate-btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito de hover nos botões */
+#all-btn:hover,
+#delivered-btn:hover,
+#undelivered-btn:hover,
+#oupdate-btn:hover {
+    background-color: darkorange;
+}
+
+
+/* Estilo da tabela de pedidos */
+#tab1 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tab1 th,
+#tab1 td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#tab1 th {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+#tab1 tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#tab1 td a {
+    text-decoration: none;
+}
