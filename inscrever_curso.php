@@ -1,29 +1,57 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 include("include/connect.php");
 
-header('Content-Type: application/json');
-
-if(!isset($_SESSION['id_conta']) || $_SESSION['id_conta'] < 0) {
-    echo json_encode(['success' => false, 'message' => 'Você precisa estar logado']);
-    exit();
+if (!isset($_SESSION['id_conta']) || $_SESSION['id_conta'] <= 0) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Você precisa estar logado para se inscrever.'
+    ]);
+    exit;
 }
 
-$id_conta = $_SESSION['id_conta'];
-$id_curso = $_POST['id_curso'];
+$id_conta = intval($_SESSION['id_conta']);
+$id_curso = isset($_POST['id_curso']) ? intval($_POST['id_curso']) : 0;
+
+if ($id_curso <= 0) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'ID do curso inválido.'
+    ]);
+    exit;
+}
+
+// Verificar se o curso existe e está ativo
+$checkCurso = mysqli_query($con, "SELECT id_curso FROM cursos WHERE id_curso = $id_curso AND ativo = 1");
+if (mysqli_num_rows($checkCurso) == 0) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Curso não encontrado ou está inativo.'
+    ]);
+    exit;
+}
 
 // Verificar se já está inscrito
-$checkQuery = "SELECT * FROM usuario_cursos WHERE id_conta = $id_conta AND id_curso = $id_curso";
-$checkResult = mysqli_query($con, $checkQuery);
-
-if(mysqli_num_rows($checkResult) > 0) {
-    echo json_encode(['success' => false, 'message' => 'Você já está inscrito neste curso']);
-    exit();
+$checkInscricao = mysqli_query($con, "SELECT * FROM usuario_cursos WHERE id_conta = $id_conta AND id_curso = $id_curso");
+if (mysqli_num_rows($checkInscricao) > 0) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Você já está inscrito neste curso.'
+    ]);
+    exit;
 }
 
-// Inscrever no curso
-$insertQuery = "INSERT INTO usuario_cursos (id_conta, id_curso, status) VALUES ($id_conta, $id_curso, 'EM ANDAMENTO')";
-$insertResult = mysqli_query($con, $insertQuery);
+// Inserir a inscrição
+$insert = mysqli_query($con, "INSERT INTO usuario_cursos (id_conta, id_curso) VALUES ($id_conta, $id_curso)");
 
-echo json_encode(['success' => $insertResult]);
-?>
+if ($insert) {
+    echo json_encode([
+        'success' => true
+    ]);
+} else {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Erro ao realizar inscrição. Tente novamente.'
+    ]);
+}

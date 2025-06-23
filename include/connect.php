@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'emsql1');
+$con = mysqli_connect('sqlnovo.chhb1lexyp6c.us-east-1.rds.amazonaws.com', 'admin1', 'Admin123', 'sqlnovo');
 if (!$con) {
     echo "A conexão com o banco falhou";
     die(mysqli_error($con));
